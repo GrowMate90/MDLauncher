@@ -6,13 +6,31 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent>
     </queries>
+
     <application
         android:theme="@style/Theme.MDLauncher"
         android:label="MD Launcher"
         android:allowBackup="true">
-        <activity android:name=".CategoryActivity" android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CategoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Normal app icon / installer Open button. -->
         <activity
             android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Separate Android HOME entry point. -->
+        <activity
+            android:name=".HomeActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:launchMode="singleTask">
@@ -20,10 +38,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
