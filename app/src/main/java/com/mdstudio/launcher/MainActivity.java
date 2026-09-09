@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 
         setContentView(root);
 
-        // Create click areas only after the root has a real size.
+        // Avvio identico alla V0.2 stabile.
         root.post(() -> {
             addHotspot("Famiglia",     0.050f, 0.216f, 0.435f, 0.455f);
             addHotspot("Trading",      0.505f, 0.216f, 0.935f, 0.455f);
